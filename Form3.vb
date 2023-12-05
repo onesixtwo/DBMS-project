@@ -28,7 +28,6 @@ Public Class Form3
                     MessageBox.Show("Welcome " & name)
                     ' Show admin form
                     Form4.Show()
-                    Form6.Show()
                 Else
                     ' Regular user logged in
                     MessageBox.Show("Welcome " & name)

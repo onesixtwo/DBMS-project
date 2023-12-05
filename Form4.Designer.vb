@@ -38,6 +38,7 @@ Partial Class Form4
         Label1 = New Label()
         Button1 = New Button()
         Button2 = New Button()
+        Button3 = New Button()
         SuspendLayout()
         ' 
         ' slotslabel3
@@ -218,6 +219,17 @@ Partial Class Form4
         Button2.Text = "Maintenance"
         Button2.UseVisualStyleBackColor = False
         ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button3.ForeColor = Color.White
+        Button3.Location = New Point(200, 410)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(138, 23)
+        Button3.TabIndex = 32
+        Button3.Text = "Account Management"
+        Button3.UseVisualStyleBackColor = False
+        ' 
         ' Form4
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -225,6 +237,7 @@ Partial Class Form4
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(slotslabel3)
         Controls.Add(Label11)
@@ -262,4 +275,5 @@ Partial Class Form4
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

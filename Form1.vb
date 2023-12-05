@@ -5,9 +5,26 @@ Public Class Form1
     Dim conn As New MySqlConnection(connString)
     Dim selectedSlotNumber As Integer = -1 ' Initialize with an invalid slot number
 
+    Private WithEvents slotStatusTimer As New Timer()
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        slotStatusTimer.Start()
+        slotStatusTimer.Interval = 1000
+
+    End Sub
+
+    Private Sub Form5_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Stop the timer when the form is closing
+        slotStatusTimer.Stop()
+        slotStatusTimer.Dispose() ' Optionally, dispose of the timer
+    End Sub
+
+    Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick
+        ' This event will be triggered every second (as per the timer interval)
         LoadSlotStatusFromDatabase()
     End Sub
+
 
     Private Sub LoadSlotStatusFromDatabase()
         Try
@@ -23,8 +40,10 @@ Public Class Form1
                         Dim slotButton As Button = DirectCast(Controls("slot" & slotNo), Button)
                         If status = 1 Then
                             slotButton.BackColor = Color.Lime
-                        Else
+                        ElseIf status = 0 Then
                             slotButton.BackColor = Color.Red
+                        ElseIf status = 2 Then
+                            slotButton.BackColor = Color.Orange
                         End If
                     End While
                 End Using
@@ -121,9 +140,12 @@ Public Class Form1
                 UpdateAvailableSlotsCount()
             End If
         ElseIf clickedSlot.BackColor = Color.Lime Then
-            clickedSlot.BackColor = Color.Red
-            selectedSlotNumber = Integer.Parse(clickedSlot.Text)
-            UpdateAvailableSlotsCount()
+            Dim slotallot As DialogResult = MessageBox.Show("Do you want to allot this slot?", "SLOT ALLOT", MessageBoxButtons.YesNo)
+            If slotallot = DialogResult.Yes Then
+                clickedSlot.BackColor = Color.Red
+                selectedSlotNumber = Integer.Parse(clickedSlot.Text)
+                UpdateAvailableSlotsCount()
+            End If
         End If
 
         For Each frm As Form In Application.OpenForms

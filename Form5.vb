@@ -3,6 +3,55 @@ Public Class Form5
     Dim connString As String = "Server=localhost;Port=3306;Database=parkingsystem;Uid=root;Pwd=;"
     Dim conn As New MySqlConnection(connString)
     Dim selectedSlotNumber As Integer = -1 ' Initialize with an invalid slot number
+
+    Private WithEvents slotStatusTimer As New Timer()
+    Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadSlotStatusFromDatabase()
+        slotStatusTimer.Start()
+
+        slotStatusTimer.Interval = 1000
+
+    End Sub
+
+    Private Sub Form5_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Stop the timer when the form is closing
+        slotStatusTimer.Stop()
+        slotStatusTimer.Dispose() ' Optionally, dispose of the timer
+    End Sub
+    Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick
+        ' This event will be triggered every second (as per the timer interval)
+        LoadSlotStatusFromDatabase()
+    End Sub
+    Private Sub LoadSlotStatusFromDatabase()
+        MessageBox.Show("updated")
+        Try
+            conn.Open()
+            Dim query As String = "SELECT slotNo, status FROM parkslots"
+            Using cmd As New MySqlCommand(query, conn)
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        Dim slotNo As Integer = Convert.ToInt32(reader("slotNo"))
+                        Dim status As Integer = Convert.ToInt32(reader("status"))
+
+                        ' Update UI based on slot status
+                        Dim slotButton As Button = DirectCast(Controls("slot" & slotNo), Button)
+                        If status = 1 Then
+                            slotButton.BackColor = Color.Lime
+                        ElseIf status = 0 Then
+                            slotButton.BackColor = Color.Red
+                        ElseIf status = 2 Then
+                            slotButton.BackColor = Color.Orange
+                        End If
+                    End While
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error loading slot status: " & ex.Message)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
     Public Sub UpdateAvailableSlotsCount()
         Try
             conn.Open()
@@ -111,4 +160,5 @@ Public Class Form5
         Form4.Show()
         Me.Hide()
     End Sub
+
 End Class
