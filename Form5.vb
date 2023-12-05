@@ -9,7 +9,7 @@ Public Class Form5
         LoadSlotStatusFromDatabase()
         slotStatusTimer.Start()
 
-        slotStatusTimer.Interval = 1000
+        slotStatusTimer.Interval = 30000
 
     End Sub
 

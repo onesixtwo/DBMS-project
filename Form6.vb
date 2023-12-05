@@ -5,6 +5,25 @@ Public Class Form6
     Dim conn As New MySqlConnection(connString)
     Private selectedRowIndex As Integer = -1
 
+    Private WithEvents slotStatusTimer As New Timer()
+    Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadUsers()
+        slotStatusTimer.Start()
+        slotStatusTimer.Interval = 1000
+    End Sub
+
+    Private Sub Form6_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Stop the timer when the form is closing
+        slotStatusTimer.Stop()
+        slotStatusTimer.Dispose() ' Optionally, dispose of the timer
+    End Sub
+
+    Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick
+        ' This event will be triggered every second (as per the timer interval)
+        LoadUsers()
+    End Sub
+
+
     Public Sub LoadUsers()
         Try
             conn.Open()
@@ -146,10 +165,5 @@ Public Class Form6
         InsertUser()
         LoadUsers()
         ClearTextBoxes()
-    End Sub
-
-    Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadUsers()
-
     End Sub
 End Class

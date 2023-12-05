@@ -9,7 +9,7 @@ Public Class Form4
         UpdateAvailableSlotsCount()
 
         slotStatusTimer.Start()
-        slotStatusTimer.Interval = 1000
+        slotStatusTimer.Interval = 30000
     End Sub
 
     Private Sub Form4_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
