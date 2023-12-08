@@ -28,11 +28,13 @@ Public Class Form3
                     MessageBox.Show("Welcome " & name)
                     ' Show admin form
                     Form4.Show()
+                    Form7.Show()
                 Else
                     ' Regular user logged in
                     MessageBox.Show("Welcome " & name)
                     ' Show regular user form
                     Form2.Show()
+                    Form7.Show()
                 End If
             Else
                 MessageBox.Show("Invalid username or password")

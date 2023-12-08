@@ -165,7 +165,7 @@ Partial Class Form6
         Controls.Add(TextBox1)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Form6"
-        Text = "Form6"
+        Text = "Account Management"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()

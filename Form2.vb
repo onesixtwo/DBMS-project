@@ -9,7 +9,7 @@ Public Class Form2
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UpdateAvailableSlotsCount()
         slotStatusTimer.Start()
-        slotStatusTimer.Interval = 30000
+        slotStatusTimer.Interval = 1000
 
     End Sub
 
