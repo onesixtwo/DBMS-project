@@ -83,6 +83,25 @@ Public Class Form5
             End Using
 
 
+            Dim queryF1M37_41 As String = "SELECT COUNT(*) FROM `parkslots` WHERE `status` = 1 AND `structure` = 'F1M37-41';"
+            Using cmd As New MySqlCommand(queryF1M37_41, conn)
+                Dim slotsCountF1M37_41 As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+
+                ' Update the label for slots in structure F1M37-41
+                Form2.slotslabel3.Text = $"{slotsCountF1M37_41} SLOTS"
+                Form4.slotslabel3.Text = $"{slotsCountF1M37_41} SLOTS"
+            End Using
+
+
+            Dim queryF1M42_46 As String = "SELECT COUNT(*) FROM `parkslots` WHERE `status` = 1 AND `structure` = 'F1M42-46';"
+            Using cmd As New MySqlCommand(queryF1M42_46, conn)
+                Dim slotsCountF1M42_46 As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+
+                ' Update the label for slots in structure F1M42-46
+                Form2.slotslabel3.Text = $"{slotsCountF1M42_46} SLOTS"
+                Form4.slotslabel3.Text = $"{slotsCountF1M42_46} SLOTS"
+            End Using
+
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         Finally
@@ -117,7 +136,8 @@ Public Class Form5
     slot7.Click, slot8.Click, slot9.Click, slot10.Click, slot11.Click, slot12.Click, slot13.Click, slot14.Click, slot15.Click,
     slot16.Click, slot17.Click, slot18.Click, slot19.Click, slot20.Click, slot21.Click, slot22.Click, slot23.Click,
     slot24.Click, slot25.Click, slot26.Click, slot27.Click, slot28.Click, slot29.Click, slot30.Click, slot31.Click,
-    slot32.Click, slot33.Click, slot34.Click, slot35.Click, slot36.Click
+    slot32.Click, slot33.Click, slot34.Click, slot35.Click, slot36.Click, slot37.Click, slot38.Click, slot39.Click,
+    slot40.Click, slot41.Click, slot42.Click, slot43.Click, slot44.Click, slot45.Click, slot46.Click
         ' Handle slot click event
         Dim clickedSlot As Button = DirectCast(sender, Button)
         Dim slotNumber As Integer = Integer.Parse(clickedSlot.Text)

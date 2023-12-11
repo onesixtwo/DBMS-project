@@ -38,6 +38,12 @@ Partial Class Form2
         Label11 = New Label()
         Label12 = New Label()
         Button2 = New Button()
+        slotslabel5 = New Label()
+        slotslabel4 = New Label()
+        Label13 = New Label()
+        Label14 = New Label()
+        Label15 = New Label()
+        Label16 = New Label()
         SuspendLayout()
         ' 
         ' Label1
@@ -218,6 +224,78 @@ Partial Class Form2
         Button2.Text = "Sign Out"
         Button2.UseVisualStyleBackColor = False
         ' 
+        ' slotslabel5
+        ' 
+        slotslabel5.AutoSize = True
+        slotslabel5.BackColor = Color.Transparent
+        slotslabel5.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        slotslabel5.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        slotslabel5.Location = New Point(200, 285)
+        slotslabel5.Name = "slotslabel5"
+        slotslabel5.Size = New Size(43, 15)
+        slotslabel5.TabIndex = 51
+        slotslabel5.Text = "SLOTS"
+        ' 
+        ' slotslabel4
+        ' 
+        slotslabel4.AutoSize = True
+        slotslabel4.BackColor = Color.Transparent
+        slotslabel4.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        slotslabel4.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        slotslabel4.Location = New Point(200, 255)
+        slotslabel4.Name = "slotslabel4"
+        slotslabel4.Size = New Size(43, 15)
+        slotslabel4.TabIndex = 52
+        slotslabel4.Text = "SLOTS"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.BackColor = Color.Transparent
+        Label13.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label13.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        Label13.Location = New Point(125, 255)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(53, 15)
+        Label13.TabIndex = 54
+        Label13.Text = "5 SLOTS"
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.BackColor = Color.Transparent
+        Label14.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label14.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        Label14.Location = New Point(44, 255)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(67, 15)
+        Label14.TabIndex = 53
+        Label14.Text = "F1 M37-41"
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.BackColor = Color.Transparent
+        Label15.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label15.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        Label15.Location = New Point(125, 285)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(53, 15)
+        Label15.TabIndex = 56
+        Label15.Text = "5 SLOTS"
+        ' 
+        ' Label16
+        ' 
+        Label16.AutoSize = True
+        Label16.BackColor = Color.Transparent
+        Label16.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label16.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        Label16.Location = New Point(44, 285)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(67, 15)
+        Label16.TabIndex = 55
+        Label16.Text = "F1 M42-46"
+        ' 
         ' Form2
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -225,6 +303,12 @@ Partial Class Form2
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Label15)
+        Controls.Add(Label16)
+        Controls.Add(Label13)
+        Controls.Add(Label14)
+        Controls.Add(slotslabel4)
+        Controls.Add(slotslabel5)
         Controls.Add(Button2)
         Controls.Add(slotslabel3)
         Controls.Add(Label11)
@@ -262,4 +346,10 @@ Partial Class Form2
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents slotslabel5 As Label
+    Friend WithEvents slotslabel4 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
 End Class

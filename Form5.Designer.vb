@@ -82,7 +82,7 @@ Partial Class Form5
         slot46.Name = "slot46"
         slot46.Size = New Size(30, 45)
         slot46.TabIndex = 97
-        slot46.Text = "10"
+        slot46.Text = "46"
         slot46.UseVisualStyleBackColor = False
         ' 
         ' slot45
@@ -92,7 +92,7 @@ Partial Class Form5
         slot45.Name = "slot45"
         slot45.Size = New Size(30, 45)
         slot45.TabIndex = 96
-        slot45.Text = "9"
+        slot45.Text = "45"
         slot45.UseVisualStyleBackColor = False
         ' 
         ' slot44
@@ -102,7 +102,7 @@ Partial Class Form5
         slot44.Name = "slot44"
         slot44.Size = New Size(30, 45)
         slot44.TabIndex = 95
-        slot44.Text = "8"
+        slot44.Text = "44"
         slot44.UseVisualStyleBackColor = False
         ' 
         ' slot43
@@ -112,7 +112,7 @@ Partial Class Form5
         slot43.Name = "slot43"
         slot43.Size = New Size(30, 45)
         slot43.TabIndex = 94
-        slot43.Text = "7"
+        slot43.Text = "43"
         slot43.UseVisualStyleBackColor = False
         ' 
         ' slot42
@@ -122,7 +122,7 @@ Partial Class Form5
         slot42.Name = "slot42"
         slot42.Size = New Size(30, 45)
         slot42.TabIndex = 93
-        slot42.Text = "6"
+        slot42.Text = "42"
         slot42.UseVisualStyleBackColor = False
         ' 
         ' slot41
@@ -132,7 +132,7 @@ Partial Class Form5
         slot41.Name = "slot41"
         slot41.Size = New Size(30, 45)
         slot41.TabIndex = 92
-        slot41.Text = "5"
+        slot41.Text = "41"
         slot41.UseVisualStyleBackColor = False
         ' 
         ' slot40
@@ -142,7 +142,7 @@ Partial Class Form5
         slot40.Name = "slot40"
         slot40.Size = New Size(30, 45)
         slot40.TabIndex = 91
-        slot40.Text = "4"
+        slot40.Text = "40"
         slot40.UseVisualStyleBackColor = False
         ' 
         ' slot39
@@ -152,7 +152,7 @@ Partial Class Form5
         slot39.Name = "slot39"
         slot39.Size = New Size(30, 45)
         slot39.TabIndex = 90
-        slot39.Text = "3"
+        slot39.Text = "39"
         slot39.UseVisualStyleBackColor = False
         ' 
         ' slot38
@@ -162,7 +162,7 @@ Partial Class Form5
         slot38.Name = "slot38"
         slot38.Size = New Size(30, 45)
         slot38.TabIndex = 89
-        slot38.Text = "2"
+        slot38.Text = "38"
         slot38.UseVisualStyleBackColor = False
         ' 
         ' slot37
@@ -172,7 +172,7 @@ Partial Class Form5
         slot37.Name = "slot37"
         slot37.Size = New Size(30, 45)
         slot37.TabIndex = 88
-        slot37.Text = "1"
+        slot37.Text = "37"
         slot37.UseVisualStyleBackColor = False
         ' 
         ' slot7

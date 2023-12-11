@@ -53,6 +53,24 @@ Public Class Form2
                 slotslabel3.Text = $"{slotsCountF1S20_25} SLOTS"
             End Using
 
+            ' Query for the slots in structure F1M37-41 
+            Dim queryF1M37_41 As String = "SELECT COUNT(*) FROM `parkslots` WHERE `status` = 1 AND `structure` = 'F1M37-41';"
+            Using cmd As New MySqlCommand(queryF1M37_41, conn)
+                Dim slotsCountF1M37_41 As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+
+                ' Update the label for slots in structure F1M37-41
+                slotslabel4.Text = $"{slotsCountF1M37_41} SLOTS"
+            End Using
+
+            ' Query for the slots in structure F1M42-46
+            Dim queryF1M42_46 As String = "SELECT COUNT(*) FROM `parkslots` WHERE `status` = 1 AND `structure` = 'F1M42-46';"
+            Using cmd As New MySqlCommand(queryF1M42_46, conn)
+                Dim slotsCountF1M42_46 As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+
+                ' Update the label for slots in structure F1M42-46
+                slotslabel5.Text = $"{slotsCountF1M42_46} SLOTS"
+            End Using
+
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         Finally
