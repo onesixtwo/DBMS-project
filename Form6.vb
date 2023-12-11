@@ -9,7 +9,7 @@ Public Class Form6
     Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadUsers()
         slotStatusTimer.Start()
-        slotStatusTimer.Interval = 1000
+        slotStatusTimer.Interval = 60000
     End Sub
 
     Private Sub Form6_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -165,5 +165,25 @@ Public Class Form6
         InsertUser()
         LoadUsers()
         ClearTextBoxes()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Me.Hide()
+        Form4.Show()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Me.Hide()
+        Form7.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Me.Hide()
+        Form5.Show()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Me.Hide()
+        Form3.Show()
     End Sub
 End Class

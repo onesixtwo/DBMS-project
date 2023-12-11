@@ -39,6 +39,7 @@ Partial Class Form4
         Button1 = New Button()
         Button2 = New Button()
         Button3 = New Button()
+        Button4 = New Button()
         SuspendLayout()
         ' 
         ' slotslabel3
@@ -71,11 +72,11 @@ Partial Class Form4
         Label12.BackColor = Color.Transparent
         Label12.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         Label12.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
-        Label12.Location = New Point(52, 220)
+        Label12.Location = New Point(45, 220)
         Label12.Name = "Label12"
-        Label12.Size = New Size(56, 15)
+        Label12.Size = New Size(63, 15)
         Label12.TabIndex = 28
-        Label12.Text = "F1 S1-12"
+        Label12.Text = "F1 S25-36"
         ' 
         ' slotslabel2
         ' 
@@ -107,11 +108,11 @@ Partial Class Form4
         Label10.BackColor = Color.Transparent
         Label10.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         Label10.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
-        Label10.Location = New Point(52, 187)
+        Label10.Location = New Point(45, 187)
         Label10.Name = "Label10"
-        Label10.Size = New Size(56, 15)
+        Label10.Size = New Size(63, 15)
         Label10.TabIndex = 25
-        Label10.Text = "F1 S1-12"
+        Label10.Text = "F1 S13-24"
         ' 
         ' Label6
         ' 
@@ -155,7 +156,7 @@ Partial Class Form4
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         Label4.ForeColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
-        Label4.Location = New Point(52, 151)
+        Label4.Location = New Point(45, 151)
         Label4.Name = "Label4"
         Label4.Size = New Size(56, 15)
         Label4.TabIndex = 20
@@ -230,6 +231,17 @@ Partial Class Form4
         Button3.Text = "Account Management"
         Button3.UseVisualStyleBackColor = False
         ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button4.ForeColor = Color.White
+        Button4.Location = New Point(699, 415)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(75, 23)
+        Button4.TabIndex = 50
+        Button4.Text = "Sign Out"
+        Button4.UseVisualStyleBackColor = False
+        ' 
         ' Form4
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -237,6 +249,7 @@ Partial Class Form4
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Button4)
         Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(slotslabel3)
@@ -276,4 +289,5 @@ Partial Class Form4
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class

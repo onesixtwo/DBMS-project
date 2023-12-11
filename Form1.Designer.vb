@@ -196,7 +196,7 @@ Partial Class Form1
         ' 
         ' btnPrintTicket
         ' 
-        btnPrintTicket.BackColor = Color.FromArgb(71, 56, 169)
+        btnPrintTicket.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
         btnPrintTicket.Cursor = Cursors.Hand
         btnPrintTicket.FlatStyle = FlatStyle.Flat
         btnPrintTicket.ForeColor = Color.White
@@ -209,7 +209,7 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.FromArgb(71, 56, 169)
+        Button1.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
         Button1.ForeColor = Color.White
         Button1.Location = New Point(13, 406)
         Button1.Name = "Button1"
@@ -560,12 +560,14 @@ Partial Class Form1
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(530, 332)
+        Button2.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button2.ForeColor = Color.White
+        Button2.Location = New Point(696, 415)
         Button2.Name = "Button2"
         Button2.Size = New Size(75, 23)
         Button2.TabIndex = 49
-        Button2.Text = "Button2"
-        Button2.UseVisualStyleBackColor = True
+        Button2.Text = "Sign Out"
+        Button2.UseVisualStyleBackColor = False
         ' 
         ' Form1
         ' 

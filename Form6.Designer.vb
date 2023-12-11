@@ -36,6 +36,10 @@ Partial Class Form6
         Column5 = New DataGridViewTextBoxColumn()
         Button2 = New Button()
         Button3 = New Button()
+        Button4 = New Button()
+        Button5 = New Button()
+        Button6 = New Button()
+        Button7 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -148,6 +152,50 @@ Partial Class Form6
         Button3.Text = "Delete"
         Button3.UseVisualStyleBackColor = True
         ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button4.ForeColor = Color.White
+        Button4.Location = New Point(176, 407)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(89, 23)
+        Button4.TabIndex = 102
+        Button4.Text = "Maintenance"
+        Button4.UseVisualStyleBackColor = False
+        ' 
+        ' Button5
+        ' 
+        Button5.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button5.ForeColor = Color.White
+        Button5.Location = New Point(92, 407)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(84, 23)
+        Button5.TabIndex = 101
+        Button5.Text = "Transactions"
+        Button5.UseVisualStyleBackColor = False
+        ' 
+        ' Button6
+        ' 
+        Button6.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button6.ForeColor = Color.White
+        Button6.Location = New Point(17, 407)
+        Button6.Name = "Button6"
+        Button6.Size = New Size(75, 23)
+        Button6.TabIndex = 100
+        Button6.Text = "Catalog"
+        Button6.UseVisualStyleBackColor = False
+        ' 
+        ' Button7
+        ' 
+        Button7.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button7.ForeColor = Color.White
+        Button7.Location = New Point(713, 407)
+        Button7.Name = "Button7"
+        Button7.Size = New Size(75, 23)
+        Button7.TabIndex = 103
+        Button7.Text = "Sign Out"
+        Button7.UseVisualStyleBackColor = False
+        ' 
         ' Form6
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -155,6 +203,10 @@ Partial Class Form6
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Button7)
+        Controls.Add(Button4)
+        Controls.Add(Button5)
+        Controls.Add(Button6)
         Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(DataGridView1)
@@ -184,4 +236,8 @@ Partial Class Form6
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
 End Class

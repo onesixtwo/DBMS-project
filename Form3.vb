@@ -28,14 +28,16 @@ Public Class Form3
                     MessageBox.Show("Welcome " & name)
                     ' Show admin form
                     Form4.Show()
-                    Form7.Show()
+                    Me.Hide()
                 Else
                     ' Regular user logged in
                     MessageBox.Show("Welcome " & name)
                     ' Show regular user form
                     Form2.Show()
-                    Form7.Show()
+                    Me.Hide()
                 End If
+                TextBox1.Clear()
+                TextBox2.Clear()
             Else
                 MessageBox.Show("Invalid username or password")
             End If

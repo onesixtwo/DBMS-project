@@ -70,6 +70,9 @@ Partial Class Form5
         slot27 = New Button()
         slot26 = New Button()
         slot25 = New Button()
+        Button2 = New Button()
+        Button3 = New Button()
+        Button4 = New Button()
         SuspendLayout()
         ' 
         ' slot46
@@ -543,6 +546,39 @@ Partial Class Form5
         slot25.Text = "25"
         slot25.UseVisualStyleBackColor = False
         ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button2.ForeColor = Color.White
+        Button2.Location = New Point(96, 412)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(84, 23)
+        Button2.TabIndex = 98
+        Button2.Text = "Transactions"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button3.ForeColor = Color.White
+        Button3.Location = New Point(180, 412)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(152, 23)
+        Button3.TabIndex = 99
+        Button3.Text = "Account Management"
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.FromArgb(CByte(71), CByte(56), CByte(169))
+        Button4.ForeColor = Color.White
+        Button4.Location = New Point(709, 412)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(75, 23)
+        Button4.TabIndex = 100
+        Button4.Text = "Sign Out"
+        Button4.UseVisualStyleBackColor = False
+        ' 
         ' Form5
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -550,6 +586,9 @@ Partial Class Form5
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Button4)
+        Controls.Add(Button3)
+        Controls.Add(Button2)
         Controls.Add(slot46)
         Controls.Add(slot45)
         Controls.Add(slot44)
@@ -650,4 +689,7 @@ Partial Class Form5
     Friend WithEvents slot27 As Button
     Friend WithEvents slot26 As Button
     Friend WithEvents slot25 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class

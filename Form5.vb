@@ -23,7 +23,6 @@ Public Class Form5
         LoadSlotStatusFromDatabase()
     End Sub
     Private Sub LoadSlotStatusFromDatabase()
-        MessageBox.Show("updated")
         Try
             conn.Open()
             Dim query As String = "SELECT slotNo, status FROM parkslots"
@@ -161,4 +160,18 @@ Public Class Form5
         Me.Hide()
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Hide()
+        Form7.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Hide()
+        Form6.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Me.Hide()
+        Form3.Show()
+    End Sub
 End Class
