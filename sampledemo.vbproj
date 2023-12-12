@@ -6,7 +6,12 @@
     <StartupObject>sampledemo.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>parkicon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="parkicon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />
