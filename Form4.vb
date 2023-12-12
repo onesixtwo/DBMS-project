@@ -16,6 +16,7 @@ Public Class Form4
         ' Stop the timer when the form is closing
         slotStatusTimer.Stop()
         slotStatusTimer.Dispose() ' Optionally, dispose of the timer
+        Module1.CloseAllOtherForms(Me)
     End Sub
 
 

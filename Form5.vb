@@ -17,6 +17,7 @@ Public Class Form5
         ' Stop the timer when the form is closing
         slotStatusTimer.Stop()
         slotStatusTimer.Dispose() ' Optionally, dispose of the timer
+        Module1.CloseAllOtherForms(Me)
     End Sub
     Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick
         ' This event will be triggered every second (as per the timer interval)
