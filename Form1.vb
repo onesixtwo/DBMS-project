@@ -18,6 +18,7 @@ Public Class Form1
         slotStatusTimer.Stop()
         slotStatusTimer.Dispose() ' Optionally, dispose of the timer
         Module1.CloseAllOtherForms(Me)
+        conn.Close()
     End Sub
 
     Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick
@@ -49,7 +50,8 @@ Public Class Form1
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error loading slot status: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try
@@ -107,7 +109,8 @@ Public Class Form1
 
 
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try
@@ -123,7 +126,8 @@ Public Class Form1
                 Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try
@@ -198,7 +202,8 @@ Public Class Form1
                 End If
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try

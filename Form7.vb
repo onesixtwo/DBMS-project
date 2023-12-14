@@ -20,6 +20,8 @@ Public Class Form7
         slotStatusTimer.Stop()
         slotStatusTimer.Dispose() ' Optionally, dispose of the timer
         Module1.CloseAllOtherForms(Me)
+        conn.Close()
+
     End Sub
 
     Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick

@@ -17,6 +17,8 @@ Public Class Form4
         slotStatusTimer.Stop()
         slotStatusTimer.Dispose() ' Optionally, dispose of the timer
         Module1.CloseAllOtherForms(Me)
+        conn.Close()
+
     End Sub
 
 
@@ -72,7 +74,8 @@ Public Class Form4
             End Using
 
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try

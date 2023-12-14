@@ -1,4 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Security.Cryptography
+Imports System.Text
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+Imports Windows.Win32.System
 
 Public Class Form6
     Dim connString As String = "Server=localhost;Port=3306;Database=parkingsystem;Uid=root;Pwd=;"
@@ -17,6 +21,8 @@ Public Class Form6
         slotStatusTimer.Stop()
         slotStatusTimer.Dispose() ' Optionally, dispose of the timer
         Module1.CloseAllOtherForms(Me)
+        conn.Close()
+
     End Sub
 
     Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick
@@ -47,23 +53,40 @@ Public Class Form6
             ' Assign the DataTable as the DataGridView's DataSource
             DataGridView1.DataSource = dataTable
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try
     End Sub
 
+    Private Function EncryptPassword(password As String) As String
+        ' Perform encryption logic here (e.g., hashing algorithm)
+        ' For example, you can use SHA256 hashing
+        Using sha256 As SHA256 = SHA256.Create()
+            Dim hashedBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(password))
+            Dim builder As New StringBuilder()
+
+            For i As Integer = 0 To hashedBytes.Length - 1
+                builder.Append(hashedBytes(i).ToString("x2"))
+            Next
+
+            Return builder.ToString()
+        End Using
+    End Function
+
     Private Sub InsertUser()
         Dim name As String = TextBox1.Text
         Dim username As String = TextBox2.Text
-        Dim password As String = TextBox3.Text
         Dim role As String = ComboBox1.SelectedItem?.ToString()
 
         ' Check if any of the textboxes are empty
-        If String.IsNullOrWhiteSpace(name) OrElse String.IsNullOrWhiteSpace(username) OrElse String.IsNullOrWhiteSpace(password) OrElse String.IsNullOrWhiteSpace(role) Then
+        If String.IsNullOrWhiteSpace(name) OrElse String.IsNullOrWhiteSpace(username) OrElse String.IsNullOrWhiteSpace(TextBox3.Text) OrElse String.IsNullOrWhiteSpace(role) Then
             MessageBox.Show("Please fill in all the fields.")
             Return ' Exit the method if any textbox is empty
         End If
+
+        Dim password As String = EncryptPassword(TextBox3.Text) ' Encrypt the password before storing
 
         Dim query As String = "INSERT INTO users (name, username, password, role) VALUES (@name, @username, @password, @role)"
 
@@ -71,7 +94,7 @@ Public Class Form6
             Using command As New MySqlCommand(query, connection)
                 command.Parameters.AddWithValue("@name", name)
                 command.Parameters.AddWithValue("@username", username)
-                command.Parameters.AddWithValue("@password", password)
+                command.Parameters.AddWithValue("@password", password) ' Store the encrypted password
                 command.Parameters.AddWithValue("@role", role)
 
                 connection.Open()
@@ -81,6 +104,9 @@ Public Class Form6
 
         MessageBox.Show("New user added successfully.")
     End Sub
+
+
+
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         ' Get the selected row index
         If e.RowIndex >= 0 Then
@@ -110,7 +136,8 @@ Public Class Form6
 
                 MessageBox.Show("User deleted successfully.")
             Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message)
+
+                Application.Exit()
             Finally
                 conn.Close()
                 LoadUsers() ' Reload data in the DataGridView after deletion
@@ -137,13 +164,16 @@ Public Class Form6
                 conn.Open()
                 Dim id As Integer = Convert.ToInt32(DataGridView1.Rows(selectedRowIndex).Cells("Column1").Value)
 
+                ' Encrypt the new password before updating the database
+                Dim newPassword As String = EncryptPassword(TextBox3.Text)
+
                 ' Update the database with the edited values
                 Dim query As String = "UPDATE users SET name = @name, username = @username, password = @password, role = @role WHERE id = @id"
 
                 Using command As New MySqlCommand(query, conn)
                     command.Parameters.AddWithValue("@name", TextBox1.Text)
                     command.Parameters.AddWithValue("@username", TextBox2.Text)
-                    command.Parameters.AddWithValue("@password", TextBox3.Text)
+                    command.Parameters.AddWithValue("@password", newPassword) ' Store the encrypted password
                     command.Parameters.AddWithValue("@role", ComboBox1.SelectedItem.ToString())
                     command.Parameters.AddWithValue("@id", id)
 
@@ -152,7 +182,8 @@ Public Class Form6
 
                 MessageBox.Show("Data updated successfully.")
             Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message)
+
+                Application.Exit()
             Finally
                 conn.Close()
                 LoadUsers() ' Reload data in the DataGridView after update
@@ -162,6 +193,8 @@ Public Class Form6
             MessageBox.Show("Please select a row to update.")
         End If
     End Sub
+
+
     Private Sub button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         InsertUser()
         LoadUsers()

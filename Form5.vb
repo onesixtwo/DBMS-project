@@ -18,6 +18,8 @@ Public Class Form5
         slotStatusTimer.Stop()
         slotStatusTimer.Dispose() ' Optionally, dispose of the timer
         Module1.CloseAllOtherForms(Me)
+        conn.Close()
+
     End Sub
     Private Sub slotStatusTimer_Tick(sender As Object, e As EventArgs) Handles slotStatusTimer.Tick
         ' This event will be triggered every second (as per the timer interval)
@@ -104,7 +106,8 @@ Public Class Form5
             End Using
 
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try
@@ -128,7 +131,8 @@ Public Class Form5
                 End If
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+
+            Application.Exit()
         Finally
             conn.Close()
         End Try
